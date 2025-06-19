@@ -32,9 +32,13 @@ epd.init_part()
 # draw border around the whole frame
 draw.rectangle((0, 0, 795, 475), outline=0, width=3)
 
+try:
+    while (True):
+        draw.rectangle((30, 90, 160, 180), fill=255)
+        draw.text((20, 100), time.strftime('%I:%M'), font=font36, fill=0)
+        epd.display_Partial(epd.getbuffer(Himage), 0, 0, epd.width, epd.height)
+        time.sleep(60)
 
-while (True):
-    draw.rectangle((30, 90, 160, 180), fill=255)
-    draw.text((20, 100), time.strftime('%I:%M'), font=font36, fill=0)
-    epd.display_Partial(epd.getbuffer(Himage), 0, 0, epd.width, epd.height)
-    time.sleep(60)
+except KeyboardInterrupt:
+    epd7in5_V2.epdconfig.module_exit(cleanup=True)
+    exit()
