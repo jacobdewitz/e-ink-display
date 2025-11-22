@@ -1,5 +1,10 @@
 #!/usr/bin/python
 # -*- coding:utf-8 -*-
+directory = '/home/karisnemik/repos/e-Paper/RaspberryPi_JetsonNano/python'
+picdir = f"{directory}/pic"
+libdir = f"{directory}/lib" # Set according to your git download
+
+if os.path.exists(libdir): sys.path.append(libdir)
 from waveshare_epd import epd7in5_V2
 import logging
 from PIL import Image, ImageDraw, ImageFont, ImageEnhance
